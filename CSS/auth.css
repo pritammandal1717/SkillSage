@@ -1,0 +1,54 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+
+body {
+    transition: all ease-in-out 0.3s;
+}
+
+.header {
+    border-bottom: 2px solid #c0c0c0;
+}
+
+a {
+    font-family: "Jura", sans-serif;
+}
+
+.btn {
+    font-family: "Jura", sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: black;
+    border: none;
+    border-radius: 30px;
+}
+
+    .btn:hover {
+        background-color: black;
+        color: white;
+    }
+
+.navbar-brand {
+    margin-top: -7px;
+    padding-bottom: 5px;
+    margin-left: 10px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.nav-link {
+    font-weight: 600;
+    color: #16213E;
+}
+
+    .nav-link:hover {
+        font-weight: 700;
+        color: black;
+    }
+
+.dropdown-menu {
+    --bs-dropdown-link-active-bg: black;
+    --bs-dropdown-min-width: 9rem;
+}
+
+#dropdownMenuButton {
+    color: black;
+}

@@ -1,0 +1,65 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap');
+
+.container-fluid {
+    display: flex;
+    justify-content: center;
+}
+
+.login {
+    width: 30%;
+    margin: 100px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #c0c0c0;
+}
+
+.form-text {
+    font-family: "Jura", sans-serif;
+    font-weight: 500;
+    text-align: center;
+}
+
+label {
+    font-family: "Jura", sans-serif;
+    font-weight: 600;
+    margin: 10px 0px;
+}
+
+.form-control {
+    font-family: "Jura", sans-serif;
+}
+
+.text-box {
+    border-radius: 20px !important;
+}
+
+    .text-box:focus {
+        border: 1px solid #c0c0c0 !important;
+        box-shadow: none !important;
+    }
+
+.error-message {
+    font-family: "Jura", sans-serif;
+    font-weight: 600;
+    margin-left: 5px;
+}
+
+input[type='checkbox']:checked {
+    accent-color: black !important;
+    color: white !important;
+}
+
+input[type='checkbox']:after {
+    box-shadow: none !important;
+}
+
+.btn {
+    background-color: white !important;
+    margin-top: 10px;
+}
+
+    .btn:hover {
+        transition: all ease-in-out 0.3s;
+        background-color: black !important;
+        color: white !important;
+    }

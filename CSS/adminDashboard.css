@@ -1,0 +1,134 @@
+﻿/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 20px;
+}
+
+h2, h3 {
+    text-align: center;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+/* GridView Styles */
+.gridview {
+    width: 100%;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .gridview th {
+        background-color: #17a2b8;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .gridview td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .gridview tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .gridview tr:hover {
+        background-color: #ddd;
+    }
+
+/* Button Styles */
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-success {
+    background-color: #28a745;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* Pager Styles */
+.pagerstyle {
+    margin-top: 20px;
+    text-align: center;
+}
+
+    .pagerstyle a {
+        margin: 0 5px;
+        padding: 8px 16px;
+        background-color: #343a40;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+        .pagerstyle a:hover {
+            background-color: #495057;
+        }
+
+/* Footer and Header Styles */
+.footerstyle, .headerstyle {
+    text-align: center;
+    padding: 12px;
+    font-weight: bold;
+    background-color: #6c757d;
+    color: white;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    .gridview th, .gridview td {
+        display: block;
+        width: 100%;
+    }
+
+    .gridview th {
+        text-align: left;
+    }
+
+    .gridview td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        margin-right: 10px;
+        color: #343a40;
+    }
+
+    .gridview td {
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 5px;
+    }
+
+    .btn {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    h2, h3 {
+        font-size: 1.5rem;
+    }
+
+    .gridview {
+        font-size: 0.9rem;
+    }
+}
