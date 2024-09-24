@@ -38,40 +38,100 @@ namespace SkillSage
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(cs);
-            string query = "select * from employee where emailid = @email and password = @pass";
-            SqlCommand sqlCommand = new SqlCommand(query, con);
-            sqlCommand.Parameters.AddWithValue("@email", UserEmail.Text);
-            sqlCommand.Parameters.AddWithValue("@pass", PasswordText.Text);
-            con.Open();
-            SqlDataReader reader = sqlCommand.ExecuteReader();
-            if (reader.HasRows)
+            using (SqlConnection con = new SqlConnection(cs))
             {
-                reader.Read();
-                string role = reader["role"].ToString();
+                // Check in employee table first
+                string employeeQuery = "select * from employee where emailid = @email and password = @pass";
+                SqlCommand cmd = new SqlCommand(employeeQuery, con);
+                cmd.Parameters.AddWithValue("@email", UserEmail.Text);
+                cmd.Parameters.AddWithValue("@pass", PasswordText.Text);
 
-                Session["email"] = UserEmail.Text.ToString();
-                Session["pass"] = PasswordText.Text.ToString();
-                Session["name"] = reader["name"].ToString();
-                Session["role"] = role;
-                Session["gender"] = reader["gender"].ToString();
-                Session["userid"] = reader["userid"].ToString();
-                Session["Id"] = reader["Id"].ToString();
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                if (role == "admin")
+                if (reader.HasRows)
                 {
-                    Response.Redirect("AdminDashboard.aspx");
+                    // If user found in employee table
+                    reader.Read();
+                    AuthenticateUser(reader, "employee");
                 }
-                else if (role == "user")
+                else
                 {
-                    Response.Redirect("Dashboard.aspx");
+                    // Close the reader and check in employer table if not found in employee
+                    reader.Close();
+
+                    string employerQuery = "select * from employer where emailid = @email and password = @pass";
+                    SqlCommand cmdEmployer = new SqlCommand(employerQuery, con);
+                    cmdEmployer.Parameters.AddWithValue("@email", UserEmail.Text);
+                    cmdEmployer.Parameters.AddWithValue("@pass", PasswordText.Text);
+
+                    SqlDataReader employerReader = cmdEmployer.ExecuteReader();
+
+                    if (employerReader.HasRows)
+                    {
+                        // If user found in employer table
+                        employerReader.Read();
+                        AuthenticateUser(employerReader, "employer");
+                    }
+                    else
+                    {
+                        // If user is not found in both tables, redirect with an error
+                        Response.Redirect("Login.aspx" + "?error=" + "100");
+                    }
+
+                    employerReader.Close();
                 }
+
+                con.Close();
             }
-            else
-            {
-                Response.Redirect("Login.aspx" + "?error=" + "100");
-            }
-            con.Close();
         }
+
+        // Helper method to authenticate user and set session variables
+        private void AuthenticateUser(SqlDataReader reader, string tableName)
+        {
+            string role = reader["role"].ToString();
+
+            Session["email"] = UserEmail.Text.ToString();
+            Session["pass"] = PasswordText.Text.ToString();
+            Session["name"] = reader["name"].ToString();
+            Session["role"] = role;
+
+            // Dynamically check if 'gender' column exists before setting it in the session
+            if (ColumnExists(reader, "gender") && reader["gender"] != DBNull.Value)
+            {
+                Session["gender"] = reader["gender"].ToString();
+            }
+
+            Session["userid"] = reader["userid"].ToString();
+            Session["Id"] = reader["Id"].ToString();
+
+            // Redirect based on the user role
+            if (role == "admin")
+            {
+                Response.Redirect("AdminDashboard.aspx");
+            }
+            else if (role == "user")
+            {
+                Response.Redirect("Dashboard.aspx");
+            }
+            else if (role == "recruiter" || (tableName == "employer" && role == "employer"))
+            {
+                Response.Redirect("EmployerDashboard.aspx");
+            }
+        }
+
+        // Helper method to check if a column exists in the SqlDataReader
+        private bool ColumnExists(SqlDataReader reader, string columnName)
+        {
+            for (int i = 0; i < reader.FieldCount; i++)
+            {
+                if (reader.GetName(i).Equals(columnName, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }

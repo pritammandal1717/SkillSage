@@ -7,21 +7,150 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link href="CSS/indexMaster.css" rel="stylesheet" />
 </head>
+
 <body>
     <form id="form1" runat="server">
         <div class="wrapper">
-            <div class="header">
-                <h1>Header</h1>
-            </div>
+            <header class="header">
+                <div class="logo">
+                    <h1>SkillSage</h1>
+                </div>
+                <nav class="navbar">
+                    <ul class="nav-links">
+                        <li><a href="#">Home</a></li>
+                        <li class="center"><a href="#">Explore</a></li>
+                        <li class="upward"><a href="#">About Us</a></li>
+                        <li class="forward"><a href="#">Contact</a></li>
+                        <li>
+                            <button class="button-52" role="button" id="login-page">Join!</button></li>
+                    </ul>
+                </nav>
+            </header>
             <div class="content">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
+
             </div>
-            <div class="footer">
-                <h1>Footer</h1>
-            </div>
+            <footer class="footer">
+                <div class="footer-row">
+                    <!-- About Us Section -->
+                    <div class="footer-col">
+                        <h4>About</h4>
+                        <ul class="links">
+                            <li><a href="#">Our Story</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- For Freelancers Section -->
+                    <div class="footer-col">
+                        <h4>For Freelancers</h4>
+                        <ul class="links">
+                            <li><a href="#">Find Work</a></li>
+                            <li><a href="#">How It Works</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Success Stories</a></li>
+                            <li><a href="#">Freelancer Resources</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- For Clients Section -->
+                    <div class="footer-col">
+                        <h4>For Clients</h4>
+                        <ul class="links">
+                            <li><a href="#">Hire Freelancers</a></li>
+                            <li><a href="#">How It Works</a></li>
+                            <li><a href="#">Client Stories</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Client Resources</a></li>
+                        </ul>
+                    </div>
+                    <!-- Subscribe Section -->
+                    <div class="footer-col">
+                        <h4>Newsletter</h4>
+                        <p>
+                            Stay updated with the latest freelancing trends, tips, and exclusive offers.
+           
+                        </p>
+                        <span id="subscribe-container">
+                            <input type="email" id="email-input" placeholder="Your email" required />
+                            <button id="subscribe-button" type="submit">SUBSCRIBE</button>
+                        </span>
+                        <!-- Popover element -->
+                        <div id="popover" class="popover">Please enter a valid email address☹</div>
+
+                        <div class="icons">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="#"><i class="fa-brands fa-github"></i></a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <span class="rights">&copy; <span id="year"></span>SkillSage. All rights reserved.</span>
+                </div>
+            </footer>
+
         </div>
     </form>
+
+    <script src="https://kit.fontawesome.com/4d3a4dab03.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        document.getElementById('login-page').addEventListener('click', function () {
+            window.location.href = "Login.aspx";
+        });
+
+    </script>
+    <script>
+        document.getElementById('subscribe-button').addEventListener('click', function () {
+            event.preventDefault();
+            const emailInput = document.getElementById('email-input');
+            const button = this;
+            const popover = document.getElementById('popover');
+
+            // Regular expression for validating an email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (emailRegex.test(emailInput.value.trim())) {
+                // Hide the input field
+                emailInput.style.display = 'none';
+
+                // Change the button text
+                button.textContent = 'SUBSCRIBED';
+
+                // Optionally, disable the button to prevent further clicks
+                button.disabled = true;
+
+                // Add a class to change button style (optional)
+                button.classList.add('subscribed');
+
+                // Trigger the confetti effect with duration
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    duration: 3000 // Set duration in milliseconds
+                });
+
+            } else {
+                // Show the popover when email is invalid
+                popover.classList.add('show');
+
+                // Hide the popover after 3 seconds
+                setTimeout(() => {
+                    popover.classList.remove('show');
+                }, 3000);
+            }
+        });
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

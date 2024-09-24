@@ -13,5 +13,12 @@ namespace SkillSage
         {
 
         }
+
+        protected void session(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Login.aspx");
+        }
     }
 }

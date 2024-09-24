@@ -76,13 +76,26 @@
     <Content Include="CSS\adminDashboard.css" />
     <Content Include="CSS\auth.css" />
     <Content Include="CSS\dashboard.css" />
+    <Content Include="CSS\employerDashboard.css" />
     <Content Include="CSS\Index.css" />
+    <Content Include="CSS\indexMaster.css" />
     <Content Include="CSS\login.css" />
     <Content Include="CSS\signup.css" />
     <Content Include="CSS\user.css" />
     <Content Include="Dashboard.aspx" />
+    <Content Include="EmployerDashboard.aspx" />
+    <Content Include="icons\ai-services.jpg" />
+    <Content Include="icons\bussiness.jpg" />
+    <Content Include="icons\content-writing.jpg" />
+    <Content Include="icons\counselling.jpg" />
+    <Content Include="icons\data.jpg" />
+    <Content Include="icons\digital-markerting.jpg" />
+    <Content Include="icons\graphics.jpg" />
+    <Content Include="icons\music.jpg" />
+    <Content Include="icons\video-animation.jpg" />
     <Content Include="Index.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="PostJob.aspx" />
     <Content Include="SignUp.aspx" />
     <Content Include="SignUpEmployer.aspx" />
     <Content Include="UserDetails.aspx" />
@@ -118,6 +131,13 @@
     <Compile Include="Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EmployerDashboard.aspx.cs">
+      <DependentUpon>EmployerDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployerDashboard.aspx.designer.cs">
+      <DependentUpon>EmployerDashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -131,6 +151,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PostJob.aspx.cs">
+      <DependentUpon>PostJob.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PostJob.aspx.designer.cs">
+      <DependentUpon>PostJob.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IndexPage.Master.cs">
