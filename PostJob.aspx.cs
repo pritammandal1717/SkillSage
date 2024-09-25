@@ -25,14 +25,13 @@ namespace SkillSage
             {
                 using (SqlConnection con = new SqlConnection(cs))
                 {
-                    string query = "INSERT INTO job (user_id, employer_id, title, description, skills, duration, payment, information) " +
-                                   "VALUES (@userId, @employerId, @title, @description, @skills, @duration, @payment, @information)";
+                    string query = "INSERT INTO job (employer_id, title, description, skills, duration, payment, information) " +
+                                   "VALUES (@employerId, @title, @description, @skills, @duration, @payment, @information)";
 
                     SqlCommand cmd = new SqlCommand(query, con);
 
                     // Assigning values to parameters
-                    cmd.Parameters.AddWithValue("@userId", Session["userid"].ToString());
-                    cmd.Parameters.AddWithValue("@employerId", Session["Id"].ToString());
+                    cmd.Parameters.AddWithValue("@employerId", Session["userid"].ToString());
                     cmd.Parameters.AddWithValue("@title", txtTitle.Text);
                     cmd.Parameters.AddWithValue("@description", txtDescription.Text);
                     cmd.Parameters.AddWithValue("@skills", txtSkills.Text);
@@ -45,13 +44,7 @@ namespace SkillSage
 
                     if (result > 0)
                     {
-                        lblMessage.ForeColor = System.Drawing.Color.Green;
-                        lblMessage.Text = "Job posted successfully!";
-                    }
-                    else
-                    {
-                        lblMessage.ForeColor = System.Drawing.Color.Red;
-                        lblMessage.Text = "Error in posting job. Please try again.";
+                        Response.Redirect("EmployerDashboard.aspx" + "?posted=10");
                     }
 
                     con.Close();

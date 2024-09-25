@@ -1,4 +1,7 @@
-﻿* {
+﻿/** Index css **/
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -88,6 +91,11 @@ Search bar
     border-radius: 0 5px 5px 0;
 }
 
+    .content .search-bar button:hover {
+        background-color: #2a34d8;
+    }
+
+
 .categories {
     display: flex;
     justify-content: flex-start; /* Align items to the left */
@@ -145,32 +153,39 @@ Search bar
 
 h2 {
     text-align: center;
+    font-size: 34px;
+    font-weight: bold;
     margin: 40px 0 20px;
-    color: #444;
+    color: #555;
 }
 
 .popular-services {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     flex-wrap: nowrap;
     gap: 20px;
     max-width: 1200px;
-    margin: 50px;
+    margin: 70px;
 }
 
 .service-card {
-    width: 150px;
-    height: 200px;
-    border-radius: 15px;
-    padding: 15px;
+    width: 200px;
+    height: 250px;
+    border-radius: 12px;
+    padding: 10px;
     color: white;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: transform 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
 }
+
+    .service-card p {
+        font-size: 16px;
+        font-weight: bold;
+    }
 
     .service-card:hover {
         transform: scale(1.05);
@@ -181,3 +196,50 @@ h2 {
         border-radius: 10px;
         object-fit: cover;
     }
+
+.container {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+    .container h1 {
+        color: #999999;
+        font-size: 36px;
+        margin-bottom: 40px;
+    }
+
+    .container .features {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+.features .feature {
+    padding: 20px;
+    border-radius: 12px;
+    width: 250px;
+    background: #fff;
+    box-shadow: 29px 29px 50px #c7c7c7, -29px -29px 50px #f9f9f9;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+    .features .feature:hover {
+        transform: scale(1.05);
+    }
+
+.features .icon {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.features h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.features p {
+    font-size: 14px;
+    color: #555;
+}

@@ -43,12 +43,3 @@ a {
         font-weight: 700;
         color: black;
     }
-
-.dropdown-menu {
-    --bs-dropdown-link-active-bg: black;
-    --bs-dropdown-min-width: 9rem;
-}
-
-#dropdownMenuButton {
-    color: black;
-}

@@ -14,20 +14,20 @@
         <!-- Navbar Section -->
         <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">SkillSage</a>
+                <a class="navbar-brand" href="Index.aspx">SkillSage</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <asp:HyperLink ID="HyperLinkHome" runat="server" NavigateUrl="~/Home.aspx" CssClass="nav-link">Home</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLinkHome" runat="server" NavigateUrl="~/Index.aspx" CssClass="nav-link">Home</asp:HyperLink>
                         </li>
                         <li class="nav-item">
-                            <asp:HyperLink ID="HyperLinkAbout" runat="server" NavigateUrl="~/About.aspx" CssClass="nav-link">About</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLinkAbout" runat="server" NavigateUrl="#" CssClass="nav-link">About</asp:HyperLink>
                         </li>
                         <li class="nav-item">
-                            <asp:HyperLink ID="HyperLinkServices" runat="server" NavigateUrl="~/Services.aspx" CssClass="nav-link">Services</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLinkServices" runat="server" NavigateUrl="#" CssClass="nav-link">Services</asp:HyperLink>
                         </li>
                     </ul>
                     <!-- Profile Info (Right-Aligned) -->

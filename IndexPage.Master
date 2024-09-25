@@ -15,11 +15,12 @@
         <div class="wrapper">
             <header class="header">
                 <div class="logo">
-                    <h1>SkillSage</h1>
+                    <a href="Index.aspx" style="text-decoration: none">SkillSage
+                    </a>
                 </div>
                 <nav class="navbar">
                     <ul class="nav-links">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="Index.aspx">Home</a></li>
                         <li class="center"><a href="#">Explore</a></li>
                         <li class="upward"><a href="#">About Us</a></li>
                         <li class="forward"><a href="#">Contact</a></li>

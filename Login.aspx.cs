@@ -10,6 +10,11 @@ namespace SkillSage
         string cs = ConfigurationManager.ConnectionStrings["skillsage"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["userid"] != null)
+            {
+                string role = Session["role"]?.ToString();
+                RedirectToDashboard(role);
+            }
             try
             {
                 string qs = Request.QueryString["error"];
@@ -35,6 +40,27 @@ namespace SkillSage
                 Response.Write(ex.Message);
             }
         }
+
+        private void RedirectToDashboard(string role)
+        {
+            switch (role?.ToLower())
+            {
+                case "admin":
+                    Response.Redirect("AdminDashboard.aspx");
+                    break;
+                case "user":
+                    Response.Redirect("Dashboard.aspx");
+                    break;
+                case "recruiter":
+                case "employer":
+                    Response.Redirect("EmployerDashboard.aspx");
+                    break;
+                default:
+                    Response.Redirect("Login.aspx?error=100");
+                    break;
+            }
+        }
+
 
         protected void Button1_Click(object sender, EventArgs e)
         {

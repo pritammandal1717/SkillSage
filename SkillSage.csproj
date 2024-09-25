@@ -79,6 +79,7 @@
     <Content Include="CSS\employerDashboard.css" />
     <Content Include="CSS\Index.css" />
     <Content Include="CSS\indexMaster.css" />
+    <Content Include="CSS\JobPost.css" />
     <Content Include="CSS\login.css" />
     <Content Include="CSS\signup.css" />
     <Content Include="CSS\user.css" />
@@ -100,6 +101,7 @@
     <Content Include="SignUpEmployer.aspx" />
     <Content Include="UserDetails.aspx" />
     <Content Include="UserProfile.aspx" />
+    <Content Include="ViewJobs.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +203,13 @@
     </Compile>
     <Compile Include="UserProfile.aspx.designer.cs">
       <DependentUpon>UserProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewJobs.aspx.cs">
+      <DependentUpon>ViewJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewJobs.aspx.designer.cs">
+      <DependentUpon>ViewJobs.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

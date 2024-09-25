@@ -1,0 +1,137 @@
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General form container styling */
+/* General form container styling */
+.post-job-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px;
+    background-color: #f4f7fc;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dce1e8;
+}
+
+    /* Form heading */
+    .post-job-container h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 25px;
+        font-size: 26px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+
+/* Form message label */
+.message-label {
+    display: block;
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #ff4d4d;
+    font-size: 16px;
+}
+
+/* Form panel styling */
+.job-form-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Form group styling */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+    .form-group label {
+        font-size: 15px;
+        font-weight: bold;
+        color: #555;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 12px 15px;
+        font-size: 14px;
+        border: 1px solid #ccd1d9;
+        border-radius: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        transition: all 0.3s ease;
+        background-color: #fff;
+        color: #333;
+    }
+
+        /* Add more rounded corners and subtle hover effect */
+        .form-group input:hover,
+        .form-group textarea:hover {
+            border-color: #a3b3cc;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #0056b3;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 86, 179, 0.2);
+        }
+
+/* Additional input styling for textarea */
+textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Button styling */
+.btn-post-job {
+    width: 100%;
+    padding: 15px 0;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+    .btn-post-job:hover {
+        background-color: #0cad48;
+        box-shadow: 0 4px 8px rgba(0, 86, 179, 0.2);
+    }
+
+    /* Box-shadow on focus for better accessibility */
+    .btn-post-job:focus {
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 86, 179, 0.3);
+    }
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .post-job-container {
+        padding: 20px;
+    }
+
+    .btn-post-job {
+        padding: 18px;
+    }
+}
+
+/* Form input and button transition */
+input, textarea, button {
+    transition: all 0.3s ease;
+}
